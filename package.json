@@ -6,7 +6,7 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js",
-    "db-start": "mongod --dbpath ./database/data/db"
+    "db-start": "/C/Program Files/MongoDB/Server/3.4/bin/mongod.exe --dbpath database/data/db"
   },
   "author": "Beth Johnson",
   "license": "ISC",
@@ -18,10 +18,12 @@
     "webpack": "^2.2.1"
   },
   "dependencies": {
-    "body-parser": "^1.17.0",
+    "body-parser": "^1.17.1",
     "express": "^4.15.0",
     "jquery": "^3.1.1",
+    "mongodb": "^2.2.26",
     "mongoose": "^4.9.6",
+    "nodemon": "^1.11.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   }
