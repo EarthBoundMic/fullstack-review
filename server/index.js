@@ -2,29 +2,31 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
 var repo = require('../database/index');
+var data = require('../data')
 
 var app = express();
 
 app.use(express.static(__dirname + '/../client/dist'));
-app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+var options = {
+  api: 'https://api.github.com',
+  url: '',
+  method: 'GET'
+}
 
 app.post('/repos/import', function (req, res) {
   // TODO
-  req.body.repo = repo;
-  var ugh = new repo({
-    username: 'ugh',
-    url: 'shit.org',
-    created_at: new Date()
-  })
- //console.log(ugh)
-  res.status(200).send(req.body);
+  console.log(req.body)
+  res.send(data);
 });
 
 app.get('/repos', function (req, res) {
   // TODO
 
-  
+  //console.log(this)
+  res.end();
 });
 
 var port = 1128;

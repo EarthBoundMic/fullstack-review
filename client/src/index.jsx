@@ -14,17 +14,39 @@ class App extends React.Component {
   }
 
   search (term) {
-    console.log(this)
+    //console.log(this)
     console.log(`${term} was searched`);
     // TODO
+    
+    
     $.ajax({
       type: "POST",
-      url: "/repos/import",
-      success: () => {
+      url: "http://localhost:1128/repos/import",
+      success: (input, success, data) => {
         console.log('something');
+        var arr = [];
+        input.map(repo => {
+          if (term === repo.owner.login) {
+            arr.push({
+              username: term,
+              id: repo.owner.id,
+              url: repo.owner.url
+            });
+          }
+        });
+        this.setState({repos: arr});
       },
-      error: () => {
-        console.log('ugh');
+      data: {Repos: this.state.repos},
+      error: (data, status, error) => {
+        console.log(error);
+      }
+    })
+
+    $.ajax({
+      type: "GET",
+      url: '/repos',
+      success: () => {
+        //console.log(this)
       }
     })
   }
