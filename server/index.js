@@ -10,21 +10,20 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-var options = {
-  api: 'https://api.github.com',
-  url: '',
-  method: 'GET'
-}
 
 app.post('/repos/import', function (req, res) {
   // TODO
-  console.log(req.body)
+  //console.log(req.body)
+  // var options = {
+  //   api: 'https://api.github.com/users',
+  //   method: 'GET'
+  // }
   res.send(data);
 });
 
 app.get('/repos', function (req, res) {
   // TODO
-
+  // console.log('hi')
   //console.log(this)
   res.end();
 });

@@ -44,9 +44,9 @@ class App extends React.Component {
 
     $.ajax({
       type: "GET",
-      url: '/repos',
-      success: () => {
-        //console.log(this)
+      url: 'http://localhost:1128/repos',
+      success: (a,b,c) => {
+        console.log(c)
       }
     })
   }
